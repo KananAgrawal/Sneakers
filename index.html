@@ -231,16 +231,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="design-upload-section">
       <h1 class="design-upload-title">Share Your Sneaker Design Ideas!</h1>
       <p class="design-upload-desc">Have a brilliant idea for a new sneaker design? Upload your concepts here!</p>
-      <div class="design-upload-form">
-        <input type="text" placeholder="Your Name" class="designInput">
-        <input type="email" placeholder="Your Email" class="designInput">
-        <input type="number" placeholder="Your Age" class="designInput">
-        <input type="number" placeholder="Design ID eg. 101" class="designInput">
-        <textarea placeholder="Describe your design idea..." class="designInput designTextarea"></textarea>
+      <form class="design-upload-form" id="contactform">
+        <input type="text" placeholder="Your Name" class="designInput" id="name">
+        <input type="email" placeholder="Your Email" class="designInput" id="email">
+        <input type="number" placeholder="Your Age" class="designInput" id="age">
+        <input type="number" placeholder="Design ID eg. 101" class="designInput" id="designid">
+        <textarea placeholder="Describe your design idea..." class="designInput designTextarea" id="message"></textarea>
         <input type="file" id="designFile" class="designFileInput" accept="image/*,.pdf">
         <label for="designFile" class="custom-file-upload">Upload Design File</label>
-        <button class="submitDesignButton">Submit Idea</button>
-      </div>
+        <input type="submit"/>
+      </form>
     </div>
     <div class="newSeason">
       <div class="nsItem">
