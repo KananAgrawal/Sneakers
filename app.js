@@ -347,7 +347,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const email = designEmailInput.value.trim();
     const description = designDescriptionInput.value.trim();
     const file = designFileInput.files[0];
+    const age = designAgeInput.value.trim();
+    const designId = designDesignId.value.trim();
 
+      console.log('contact from submitted');
+      console.log('Name:',name);
+
+      gtag('event' , 'contactform_event',{
+          user_name: name,
+          user_email: email,
+          user_message: description,
+          user_age: age,
+          user_designId: designId,
+          submission_count: 1
+      })
+
+      console.log('contactform_event sent successfully')
     let isValid = true;
 
     // Basic validation for demonstration
