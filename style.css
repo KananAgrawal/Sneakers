@@ -592,11 +592,11 @@ footer {
   }
 
   .sliderPrice {
+    font-size: 10vw;
     top: unset;
-    bottom: -5px;
+    bottom: 0;
     left: 0;
     z-index: 1;
-    margin-bottom: 0;
     width: 50%;
     background-color: lightgrey;
   }
@@ -605,6 +605,7 @@ footer {
     top: unset;
     top: 0;
     right: 0;
+    font-size: 6vw;
   }
 
   .features {
