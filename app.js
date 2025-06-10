@@ -332,5 +332,71 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+//Design Upload Section Script
+document.addEventListener("DOMContentLoaded", function () {
+  const submitDesignButton = document.querySelector(".submitDesignButton");
+  const designNameInput = document.querySelector(".designInput[placeholder='Your Name']");
+  const designEmailInput = document.querySelector(".designInput[placeholder='Your Email']");
+  const designDescriptionInput = document.querySelector(".designInput.designTextarea");
+  const designFileInput = document.getElementById("designFile");
+
+  submitDesignButton.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const name = designNameInput.value.trim();
+    const email = designEmailInput.value.trim();
+    const description = designDescriptionInput.value.trim();
+    const file = designFileInput.files[0];
+
+    let isValid = true;
+
+    // Basic validation for demonstration
+    if (!name) {
+      showToast("Please enter your name for design submission.", "red");
+      isValid = false;
+    } else if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showToast("Please enter a valid email for design submission.", "red");
+      isValid = false;
+    } else if (!description) {
+      showToast("Please describe your design idea.", "red");
+      isValid = false;
+    } else if (!file) {
+      showToast("Please upload a design file.", "red");
+      isValid = false;
+    }
+
+    if (isValid) {
+      // Here you would typically handle the file upload and form submission
+      // For this example, we'll just show a success message and clear the form.
+      showToast("Your design idea has been submitted!", "#4CAF50");
+
+      // Clear the form fields
+      designNameInput.value = "";
+      designEmailInput.value = "";
+      designDescriptionInput.value = "";
+      designFileInput.value = ""; // Clear the selected file
+    }
+  });
+
+  // Function to show toast notification at the top (re-used from existing)
+  function showToast(message, bgColor) {
+    const toast = document.createElement("div");
+    toast.className = "toast";
+    toast.innerText = message;
+    toast.style.backgroundColor = bgColor;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.opacity = "1";
+    }, 100);
+
+    setTimeout(() => {
+      toast.style.opacity = "0";
+      setTimeout(() => toast.remove(), 500);
+    }, 3000);
+  }
+});
+
 
 
