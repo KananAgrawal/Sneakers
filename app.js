@@ -334,64 +334,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //Design Upload Section Script
 document.addEventListener("DOMContentLoaded", function () {
-  const submitDesignButton = document.querySelector(".submitDesignButton");
-  const designNameInput = document.querySelector(".designInput[placeholder='Your Name']");
-  const designEmailInput = document.querySelector(".designInput[placeholder='Your Email']");
-  const designDescriptionInput = document.querySelector(".designInput.designTextarea");
-  const designFileInput = document.getElementById("designFile");
+  // const submitDesignButton = document.querySelector(".submitDesignButton");
+  // const designNameInput = document.querySelector(".designInput[placeholder='Your Name']");
+  // const designEmailInput = document.querySelector(".designInput[placeholder='Your Email']");
+  // const designDescriptionInput = document.querySelector(".designInput.designTextarea");
+  // const designFileInput = document.getElementById("designFile");
 
-  submitDesignButton.addEventListener("click", function (event) {
+  document.getElementById('contactform').addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const name = designNameInput.value.trim();
-    const email = designEmailInput.value.trim();
-    const description = designDescriptionInput.value.trim();
-    const file = designFileInput.files[0];
-    const age = designAgeInput.value.trim();
-    const designId = designDesignId.value.trim();
-
-      console.log('contact from submitted');
-      console.log('Name:',name);
+    const name = document.getElementById('name')
+    const email = document.getElementById('email')
+    const description = document.getElementById('message')
+    const age= document.getElementById('age')
+    const desginId= document.getElementById('designid')
+    
+    console.log('contact from submitted');
+    console.log(name.value , email.value , description.value , age.value , desginId.value);
 
       gtag('event' , 'contactform_event',{
-          user_name: name,
-          user_email: email,
-          user_message: description,
-          user_age: age,
-          user_designId: designId,
+          user_name: name.value,
+          user_email: email.value,
+          user_message: description.value,
+          user_age: age.value,
+          user_designId: desginId.value,
           submission_count: 1
       })
 
       console.log('contactform_event sent successfully')
-    let isValid = true;
 
-    // Basic validation for demonstration
-    if (!name) {
-      showToast("Please enter your name for design submission.", "red");
-      isValid = false;
-    } else if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      showToast("Please enter a valid email for design submission.", "red");
-      isValid = false;
-    } else if (!description) {
-      showToast("Please describe your design idea.", "red");
-      isValid = false;
-    } else if (!file) {
-      showToast("Please upload a design file.", "red");
-      isValid = false;
-    }
 
-    if (isValid) {
-      // Here you would typically handle the file upload and form submission
-      // For this example, we'll just show a success message and clear the form.
-      showToast("Your design idea has been submitted!", "#4CAF50");
-
-      // Clear the form fields
-      designNameInput.value = "";
-      designEmailInput.value = "";
-      designDescriptionInput.value = "";
-      designFileInput.value = ""; // Clear the selected file
-    }
-  });
+});
 
   // Function to show toast notification at the top (re-used from existing)
   function showToast(message, bgColor) {
