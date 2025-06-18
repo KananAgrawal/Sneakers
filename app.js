@@ -350,6 +350,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const desginId= document.getElementById('designid')
     
     console.log('contact from submitted');
+    showToast("Successfully Submited!", "#4CAF50");
     console.log(name.value , email.value , description.value , age.value , desginId.value);
 
       gtag('event' , 'contactform_event',{
